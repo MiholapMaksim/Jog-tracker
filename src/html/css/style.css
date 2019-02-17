@@ -10,6 +10,12 @@
     font-weight:normal;
     font-style:normal;
 }
+@font-face{
+    font-family:'SFUIText-Medium';
+    src:url('../../fonts/SFUIText-Medium.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
 body{
     font-size: 0.833vw;
     margin: 0;
@@ -19,13 +25,18 @@ p{
     color: #6f6f6f;
 }
 header{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+}
+header .header-wrapper{
+    z-index: 2;
+}
+header .header-wrapper .header{
     background: #7ed321;
     padding: 1.875em 3.3125em;
     display: flex;
     align-items: center;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
 }
 header .logo-wrapper{
     flex: 0 0 9.1385em;
@@ -66,8 +77,11 @@ header .menu li a:after{
 header .menu li.active a:after, header .menu li:hover a:after{
     background: #fff;
 }
+header .menu li:last-child a:after{
+    content: none;
+}
 header .menu li a img{
-    width: 1.85em;
+    width: 2.25em;
 }
 img{
     max-width: 100%;
@@ -76,6 +90,7 @@ img{
     height: 100%;
     position: absolute;
     top: 0;
+    padding-top: 12em;
 }
 .content-wrapper .panel-let-in{
     width: 31.4375em;
@@ -98,6 +113,7 @@ img{
     border-radius: 2em;
     border: 0.16em solid #fff;
     text-decoration: none;
+    display: inline-block;
 }
 .content-wrapper .panel-let-in a{
     font-size: 1.125em;
@@ -115,15 +131,15 @@ img{
 .content-wrapper .panel-add-run form{
     margin: 0 5.71em;
 }
-.content-wrapper .panel-add-run form label{
+.content-wrapper .panel-add-run form label, .filtration-form-wrapper form label{
     display: flex;
     text-align: left;
     align-items: center;
-    font-family: SFUIText-Bold;
+    font-family: SFUIText-Regular;
     font-size: 1em;
     margin-bottom: 1.5625em;
 }
-.content-wrapper .panel-add-run form label input{
+.content-wrapper .panel-add-run form label input, .filtration-form-wrapper form label input{
     display: block;
     margin-left: auto;
     border-radius: 0.4375em;
@@ -169,4 +185,43 @@ img{
     border-color: #e990f9;
     color: #e990f9;
     padding: 1.11em 1.88em;
+}
+.filtration-form-wrapper{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.filtration-form-wrapper form{
+    padding: 1em 0;
+    background: #eaeaea;
+}
+.filtration-form-wrapper form label{
+    flex: 0 0 13%;
+    max-width: 13%;
+    margin: 0;
+    color: #6f6f6f;
+}
+.filtration-form-wrapper form label input{
+    width: 48%;
+    margin-left: 1em;
+}
+.content-wrapper .list-jogs-wrapper .item{
+    margin-bottom: 4.875em;
+}
+.content-wrapper .list-jogs-wrapper .item p{
+    font-family:'SFUIText-Medium';
+    margin-bottom: 0.8571em;
+}
+.content-wrapper .list-jogs-wrapper .item p.date{
+    font-family: SFUIText-Regular;
+    font-size: 0.875em;
+}
+.content-wrapper .list-jogs-wrapper .item p span{
+    color: #000;
+}
+.content-wrapper .add-jog{
+    position: absolute;
+    width: 3.75em;
+    bottom: 2.5em;
+    right: 2.5em;
 }

@@ -11,17 +11,33 @@
     <title>Job Tracker</title>
   </head>
   <body>
-    <header>
-        <div class="logo-wrapper">
-            <img src="../images/header/logo.svg" />
-        </div>
-        <ul class="menu">
-            <li><a href="#">Jogs</a></li>
-            <li class="active"><a href="#">Info</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#"><img src="../images/header/filter.svg" /></a></li>
-        </ul>
-    </header>
+      <header>
+          <div class="col-12 header-wrapper">
+              <div class="row header">
+                  <div class="logo-wrapper">
+                      <img src="../images/header/logo.svg" />
+                  </div>
+                  <ul class="menu">
+                      <li class="active"><a href="#">Jogs</a></li>
+                      <li><a href="#">Info</a></li>
+                      <li><a href="#">Contact us</a></li>
+                      <li><a href="#"><img src="../images/header/filter.svg" /></a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-12 filtration-form-wrapper">
+              <form id="filtration" class="row justify-content-center" method="post">
+                  <label class="col-md-2"> 
+                      Date from
+                      <input type="text" name="date_from" id="date_from"/>
+                  </label>
+                  <label class="col-md-2"> 
+                      Date to
+                      <input type="text" name="date_to" id="date_to"/>
+                  </label>
+              </form>
+          </div>
+      </header>
     <div class="col-12 content-wrapper">
         <div class="row align-items-center justify-content-center h-100">
             <div class="col-md-4 panel-not-found">
