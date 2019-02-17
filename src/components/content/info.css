@@ -1,0 +1,26 @@
+.content-wrapper .info-wrapper{
+    flex: 0 0 34%;
+    max-width: 34%;
+}
+.content-wrapper .info-wrapper h1{
+    font-family: SFUIText-Bold;
+    font-size: 2.25em;
+    color: #7ed321;
+    text-transform: uppercase;
+    margin-bottom: 0.9375em;
+}
+.content-wrapper .info-wrapper p{
+    font-family: SFUIText-Regular;
+    font-size: 0.875em;
+    line-height: 1.71;
+}
+@media (max-width: 768px){
+    .content-wrapper .info-wrapper{
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 2.06em;
+    }
+    .content-wrapper .info-wrapper p{
+        font-size: 1em;
+    }
+}

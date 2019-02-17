@@ -1,0 +1,23 @@
+header{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+}
+header .header-wrapper{
+    z-index: 2;
+}
+header .header-wrapper .header{
+    background: #7ed321;
+    padding: 1.875em 3.3125em;
+    display: flex;
+    align-items: center;
+    transition: .4s;
+}
+@media (max-width: 768px){
+    body{
+        font-size: 3.21vw;
+    }
+    header .header-wrapper .header{
+        padding: 1.625em 2.0625em;
+    }
+}

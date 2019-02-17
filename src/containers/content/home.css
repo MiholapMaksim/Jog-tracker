@@ -1,0 +1,38 @@
+.content-wrapper .panel-let-in{
+    width: 31.4375em;
+    border-radius: 2.75em;
+    background-color: #e990f9;
+    text-align: center;
+    padding-top: 4.8125em;
+    padding-bottom: 2.25em;
+}
+.content-wrapper .panel-let-in .image-wrapper{
+    width: 10em;
+    margin: 0 auto;
+}
+.content-wrapper .panel-let-in a{
+    font-family: SFUIText-Bold;
+    line-height: 1;
+    color: #fff;
+    border-style: none;
+    background: transparent;
+    border-radius: 2em;
+    border: 0.16em solid #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+.content-wrapper .panel-let-in a{
+    font-size: 1.125em;
+    margin-top: 3.11em;
+    padding: 1.11em 1.88em;
+}
+@media(max-width: 768px){
+    .content-wrapper .panel-let-in{
+        padding: 0;
+        background: transparent;
+    }
+    .content-wrapper .panel-let-in a{
+        color: #e990f9;
+        border-color: #e990f9;
+    }
+}
