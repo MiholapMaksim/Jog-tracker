@@ -2,7 +2,14 @@
     font-family:'SFUIText-Bold';
     src:url('../../fonts/SFUIText-Bold.woff') format('woff');
     font-weight:normal;
-    font-style:normal;}
+    font-style:normal;
+}
+@font-face{
+    font-family:'SFUIText-Regular';
+    src:url('../../fonts/SFUIText-Regular.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}
 body{
     font-size: 0.833vw;
     margin: 0;
@@ -123,4 +130,21 @@ img{
     width: 100%;
     padding: 1.16em 0;
     margin-top: 3.83em;
+}
+.content-wrapper .info-wrapper{
+    flex: 0 0 34%;
+    max-width: 34%;
+}
+.content-wrapper .info-wrapper h1{
+    font-family: SFUIText-Bold;
+    font-size: 2.25em;
+    color: #7ed321;
+    text-transform: uppercase;
+    margin-bottom: 0.9375em;
+}
+.content-wrapper .info-wrapper p{
+    font-family: SFUIText-Regular;
+    font-size: 0.875em;
+    line-height: 1.71;
+    color: #6f6f6f;
 }
