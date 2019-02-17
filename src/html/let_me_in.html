@@ -14,15 +14,21 @@
       <header>
           <div class="col-12 header-wrapper">
               <div class="row header">
-                  <div class="logo-wrapper">
-                      <img src="../images/header/logo.svg" />
-                  </div>
-                  <ul class="menu">
-                      <li class="active"><a href="#">Jogs</a></li>
-                      <li><a href="#">Info</a></li>
-                      <li><a href="#">Contact us</a></li>
-                      <li><a href="#"><img src="../images/header/filter.svg" /></a></li>
-                  </ul>
+                    <div class="logo-wrapper">
+                        <img src="../images/header/logo.svg" />
+                    </div>
+                    <ul class="menu">
+                        <li class="active"><a href="#">Jogs</a></li>
+                        <li><a href="#">Info</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                    <a href="#" class="filtration-button"><img src="../images/header/filter.svg" /></a>
+                    <div class="menu_icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
               </div>
           </div>
           <div class="col-12 filtration-form-wrapper">
@@ -48,5 +54,13 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+    <script> 
+            $(function() {
+                $('.menu_icon').on('click', function() {
+                    $(this).closest('.header').toggleClass('menu_state_open');
+                });
+            });
+    </script>
   </body>
 </html>
