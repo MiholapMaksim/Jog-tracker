@@ -1,3 +1,50 @@
+@font-face{
+    font-family:'SFUIText-Bold';
+    src:url('../../fonts/SFUIText-Bold.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;}
 body{
     font-size: 0.833vw;
+    margin: 0;
+    height: 100vh;
+}
+header{
+    background: #7ed321;
+    padding: 1.875em 3.3125em;
+}
+header .logo-wrapper{
+    width: 9.1875em;
+}
+img{
+    max-width: 100%;
+}
+.content-wrapper{
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+.content-wrapper .panel{
+    width: 31.4375em;
+    border-radius: 2.75em;
+    background-color: #e990f9;
+    text-align: center;
+    padding-top: 4.8125em;
+    padding-bottom: 2.25em;
+}
+.content-wrapper .panel .image-wrapper{
+    width: 10em;
+    margin: 0 auto;
+}
+.content-wrapper .panel button{
+    font-size: 1.125em;
+    font-family: SFUIText-Bold;
+    font-weight: bold;
+    line-height: 1;
+    border-radius: 2em;
+    border-style: none;
+    background: transparent;
+    border: 0.16em solid #fff;
+    margin-top: 3.11em;
+    padding: 1.11em 1.88em;
+    color: #fff;
 }
