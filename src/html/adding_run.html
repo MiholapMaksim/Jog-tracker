@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Job Tracker</title>
+  </head>
+  <body>
+    <header>
+        <div class="logo-wrapper">
+            <img src="../images/header/logo.svg" />
+        </div>
+        <ul class="menu">
+            <li><a href="#">Jogs</a></li>
+            <li><a href="#">Info</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#"><img src="../images/header/filter.svg" /></a></li>
+        </ul>
+    </header>
+    <div class="col-12 content-wrapper">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="panel-add-run">
+                <form id="add-run" method="post">
+                    <label>
+                        Distance
+                        <input type="text" name="distance" id="distance"/>
+                    </label>
+                    <label>
+                        Time
+                        <input type="text" name="time" id="time"/>
+                    </label>
+                    <label>
+                        Date
+                        <input type="text" name="date" id="date"/>
+                    </label>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

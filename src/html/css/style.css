@@ -11,9 +11,50 @@ body{
 header{
     background: #7ed321;
     padding: 1.875em 3.3125em;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 header .logo-wrapper{
-    width: 9.1875em;
+    flex: 0 0 9.1385em;
+    display: block;
+}
+header .menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-left: auto;
+}
+header .menu li{
+    display: inline-block;
+    margin: 0 1.4375em;
+}
+header .menu li a{
+    font-family: SFUIText-Bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    text-decoration: none;
+    position: relative;
+}
+header .menu li a:after{
+    content: "";
+    position: absolute;
+    bottom: -0.5em;
+    width: calc(100% + 0.8em);
+    height: 0.14em;
+    background: transparent;
+    left: -0.4em;
+    transition: .2s;
+}
+header .menu li.active a:after, header .menu li:hover a:after{
+    background: #fff;
+}
+header .menu li a img{
+    width: 1.85em;
 }
 img{
     max-width: 100%;
@@ -23,7 +64,7 @@ img{
     position: absolute;
     top: 0;
 }
-.content-wrapper .panel{
+.content-wrapper .panel-let-in{
     width: 31.4375em;
     border-radius: 2.75em;
     background-color: #e990f9;
@@ -31,20 +72,55 @@ img{
     padding-top: 4.8125em;
     padding-bottom: 2.25em;
 }
-.content-wrapper .panel .image-wrapper{
+.content-wrapper .panel-let-in .image-wrapper{
     width: 10em;
     margin: 0 auto;
 }
-.content-wrapper .panel button{
-    font-size: 1.125em;
+.content-wrapper .panel-let-in a, .content-wrapper .panel-add-run form button{
     font-family: SFUIText-Bold;
-    font-weight: bold;
     line-height: 1;
-    border-radius: 2em;
+    color: #fff;
     border-style: none;
     background: transparent;
+    border-radius: 2em;
     border: 0.16em solid #fff;
+}
+.content-wrapper .panel-let-in a{
+    font-size: 1.125em;
     margin-top: 3.11em;
     padding: 1.11em 1.88em;
-    color: #fff;
+}
+.content-wrapper .panel-add-run{
+    width: 31.4375em;
+    border-radius: 2.75em;
+    background-color: #7ed321;
+    text-align: center;
+    padding-top: 4.8125em;
+    padding-bottom: 2.25em;
+}
+.content-wrapper .panel-add-run form{
+    margin: 0 5.71em;
+}
+.content-wrapper .panel-add-run form label{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    font-family: SFUIText-Bold;
+    font-size: 1em;
+    margin-bottom: 1.5625em;
+}
+.content-wrapper .panel-add-run form label input{
+    display: block;
+    margin-left: auto;
+    border-radius: 0.4375em;
+    border-style: none;
+    padding: 0.3em 0.5em;
+    border: 0.0625em solid #979797;
+}
+.content-wrapper .panel-add-run form button{
+    font-size: 0.8em;
+    display: block;
+    width: 100%;
+    padding: 1.16em 0;
+    margin-top: 3.83em;
 }
