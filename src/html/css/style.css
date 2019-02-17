@@ -15,6 +15,9 @@ body{
     margin: 0;
     height: 100vh;
 }
+p{
+    color: #6f6f6f;
+}
 header{
     background: #7ed321;
     padding: 1.875em 3.3125em;
@@ -38,6 +41,9 @@ header .menu{
 header .menu li{
     display: inline-block;
     margin: 0 1.4375em;
+}
+header .menu li:last-child{
+    margin-right: 0;
 }
 header .menu li a{
     font-family: SFUIText-Bold;
@@ -79,11 +85,11 @@ img{
     padding-top: 4.8125em;
     padding-bottom: 2.25em;
 }
-.content-wrapper .panel-let-in .image-wrapper{
+.content-wrapper .panel-let-in .image-wrapper, .content-wrapper .panel-not-found .image-wrapper{
     width: 10em;
     margin: 0 auto;
 }
-.content-wrapper .panel-let-in a, .content-wrapper .panel-add-run form button{
+.content-wrapper .panel-let-in a, .content-wrapper .panel-add-run form button, .content-wrapper .panel-not-found a{
     font-family: SFUIText-Bold;
     line-height: 1;
     color: #fff;
@@ -91,6 +97,7 @@ img{
     background: transparent;
     border-radius: 2em;
     border: 0.16em solid #fff;
+    text-decoration: none;
 }
 .content-wrapper .panel-let-in a{
     font-size: 1.125em;
@@ -146,5 +153,20 @@ img{
     font-family: SFUIText-Regular;
     font-size: 0.875em;
     line-height: 1.71;
-    color: #6f6f6f;
+}
+.content-wrapper .panel-not-found{
+    text-align: center
+}
+.content-wrapper .panel-not-found p{
+    font-family: SFUIText-Regular;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    margin-top: 1.95em;
+    margin-bottom: 5.875em;
+}
+.content-wrapper .panel-not-found a{
+    font-size: 1.125em;
+    border-color: #e990f9;
+    color: #e990f9;
+    padding: 1.11em 1.88em;
 }
