@@ -12,7 +12,7 @@ class Menu extends Component {
     changeMenuMobile = () =>{
         this.props.changeStateMenu(this.props.currentStateMenu);
         this.props.checkStateMenu(!this.props.currentStateMenu);
-    }
+    };
 
     handlerClickLink = (e) => {
         this.props.checkActivePage(e.currentTarget.attributes.href.nodeValue);
@@ -20,7 +20,7 @@ class Menu extends Component {
             this.elementHeader.classList.remove('menu_state_open');
             this.changeMenuMobile();
         }
-    }
+    };
 
     handlerClickOpenMenu = (e) => {
         this.elementHeader = this.elementHeader !== {} ? e.currentTarget.parentElement : {};
@@ -31,7 +31,7 @@ class Menu extends Component {
         if (window.innerWidth < 768){
             this.changeMenuMobile();
         }
-    }
+    };
 
 
     render(){
@@ -52,14 +52,13 @@ class Menu extends Component {
             </>
         );
     }
-    
 }
 
 function mapStateToProps(state) {
     return {
-        currentPage: state.pages.currentPage,
+        currentPage: state.page.currentPage,
         currentLogo: state.images.currentLogo,
-        currentStateMenu: state.pages.stateMenu
+        currentStateMenu: state.page.stateMenu
     };
 }
 

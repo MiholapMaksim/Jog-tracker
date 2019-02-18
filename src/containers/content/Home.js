@@ -3,7 +3,7 @@ import './home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {checkWindowWidth} from "../../actions";
+import {checkWindowWidth, changeStatusResponseAuthenticate} from "../../actions";
 
 class Home extends Component{
 
@@ -14,19 +14,22 @@ class Home extends Component{
 
     resize = () => {
         this.props.checkWindowWidth(window.innerWidth);
-    }
+    };
 
-    getUser = async (e) => {
-        e.preventDefault();
-        let response = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/user", {
-                headers: {
-                    Accept: "application/json",
-                    Authorization: "Bearer eb8cdf9e61521369da24ab55f0095f5da870881990d9b75daefef50333178daf"
-                }
-        }).then((response) => {
-            return response.json();
+    getToken = async (e) => {
+        let response = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/uuidLogin", {
+            body: "uuid=hello",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "POST"
         });
-    }
+        this.props.changeStatusResponseAuthenticate(response.ok);
+        let responseToken = await response.json();
+        localStorage.setItem('access_token', responseToken.response.access_token);
+        localStorage.setItem('token_type', responseToken.response.token_type);
+    };
 
     render () {
         return (
@@ -34,7 +37,7 @@ class Home extends Component{
                 <div className="image-wrapper">
                     <img src={this.props.imageBear} />
                 </div>
-                <Link to="/jogs" onClick={this.getUser}>Let me in</Link>
+                <Link to="/jogs" onClick={this.getToken}>Let me in</Link>
             </div>
         );
     }
@@ -47,7 +50,10 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({checkWindowWidth: checkWindowWidth}, dispatch)
+    return bindActionCreators({
+        checkWindowWidth: checkWindowWidth,
+        changeStatusResponseAuthenticate: changeStatusResponseAuthenticate
+    }, dispatch)
 }
 
 

@@ -1,12 +1,12 @@
 import {combineReducers} from 'redux';
 import JogsReducers from './jogs';
 import ImagesReducers from './images';
-import PagesReducers from './pages';
+import PageReducers from './page';
 
 const allReducers = combineReducers({
     jogs: JogsReducers,
     images: ImagesReducers,
-    pages: PagesReducers
-})
+    page: PageReducers
+});
 
 export default allReducers;

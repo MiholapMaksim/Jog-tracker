@@ -17,3 +17,18 @@ export const changeStateMenu = (value) =>({
     type: "CHANGE_STATE_MENU",
     payload: value
 });
+
+export const changeStatusResponseAuthenticate = (status) =>({
+    type: "STATUS_RESPONSE_AUTHENTICATE",
+    payload: status
+});
+
+export const changeStatusResponseGetJogs = (status) =>({
+    type: "STATUS_RESPONSE_GET_JOGS",
+    payload: status
+});
+
+export const setJogs = (array) =>({
+    type: "SET_JOGS",
+    payload: array
+});

@@ -1,0 +1,26 @@
+.content-wrapper .list-jogs-wrapper .item{
+    padding: 2.43em 15px;
+}
+.content-wrapper .list-jogs-wrapper .item p{
+    font-family:'SFUIText-Medium';
+    margin-bottom: 0.8571em;
+}
+.content-wrapper .list-jogs-wrapper .item p.date{
+    font-family: SFUIText-Regular;
+    font-size: 0.875em;
+}
+.content-wrapper .list-jogs-wrapper .item p span{
+    color: #000;
+}
+@media(max-width: 768px){
+    .content-wrapper .list-jogs-wrapper .item{
+        padding: 3.75em 15px;
+        border-bottom: 1px solid #d7d7d7;
+    }
+    .content-wrapper .list-jogs-wrapper .item:last-child{
+        border: none;
+    }
+    .content-wrapper .list-jogs-wrapper .item .image-wrapper{
+        text-align: center;
+    }
+}
