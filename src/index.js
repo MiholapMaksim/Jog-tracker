@@ -4,27 +4,16 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import allReducers from './reducers';
-import Header from './containers/header/Header';
-import Home from './containers/content/Home';
-import Info from './components/content/Info';
+import App from "./App";
 
 const store = createStore(allReducers);
-
 ReactDOM.render(
     <Provider store={store}>
-        <Header />
-        <div className="col-12 content-wrapper">
-            <div className="row align-items-center justify-content-center h-100">
-                <Router>
-                    <>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/info" component={Info} />
-                    </>
-                </Router>
-            </div>
-        </div>
+        <Router>
+            <App />
+        </Router>
     </Provider>, 
     document.getElementById('page'));
 

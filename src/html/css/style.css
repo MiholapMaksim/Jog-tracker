@@ -268,11 +268,11 @@ img{
     header .header-wrapper .header{
         padding: 1.625em 2.0625em;
     }
-    header .menu_icon{
-        display: block;
-    }
     header .logo-wrapper{
         flex: 0 0 8.1385em;
+    }
+    header .menu_icon{
+        display: block;
     }
     header .menu{
         display: block; 
@@ -306,10 +306,6 @@ img{
     header .menu li.active a, header .menu li a:hover{
         color: #7ed321;
     }
-    header .filtration-button{
-        margin-left: auto;
-        margin-right: 3.75em;
-    }
     .menu_state_open .menu_icon span{
         background: #b0abab;
     }
@@ -329,6 +325,10 @@ img{
     }
     header .header-wrapper .header.menu_state_open{
         background: #fff;
+    }
+    header .filtration-button{
+        margin-left: auto;
+        margin-right: 3.75em;
     }
     .filtration-form-wrapper form label{
         flex: 0 0 47%;

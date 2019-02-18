@@ -1,0 +1,134 @@
+header .menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-left: auto;
+}
+header .menu li{
+    display: inline-block;
+    margin: 0 1.4375em;
+}
+header .menu li a{
+    font-family: SFUIText-Bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    text-decoration: none;
+    position: relative;
+}
+header .menu li a:after{
+    content: "";
+    position: absolute;
+    bottom: -0.5em;
+    width: calc(100% + 0.8em);
+    height: 0.14em;
+    background: transparent;
+    left: -0.4em;
+    transition: .2s;
+}
+header .menu li a.active:after, header .menu li a:hover:after{
+    background: #fff;
+}
+header .filtration-button{
+    margin-left: 1.4375em;
+}
+header .filtration-button img{
+    width: 2.25em;
+}
+header .menu_icon{
+    display: none;
+    position: relative;
+    width: 4em;
+    height: 4em;
+    cursor: pointer;
+    padding: 0.75em;
+    transition: 1s;
+}
+.menu_icon span {
+    display: block;
+    position: absolute;
+    height: 0.4em;
+    width: 2.5em;
+    background: #fff;
+    border-radius: 9px;
+    left: 0.75em;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+.menu_icon span:nth-child(1) {
+    top: calc(30% - 0.4em)
+}
+.menu_icon span:nth-child(2), .menu_icon span:nth-child(3) {
+    top: calc(50% - 0.2em);
+}
+.menu_icon span:nth-child(4) {
+    top: 70%;
+}
+header .filtration-button{
+    margin-left: 1.4375em;
+}
+header .filtration-button img{
+    width: 2.25em;
+}
+@media(max-width: 768px){
+    header .menu_icon{
+        display: block;
+    }
+    header .menu{
+        display: block; 
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        transition: .4s;
+        height: 0;
+        top: 0;
+        width: 100%;
+        left: 0;
+        background: #fff;
+        z-index: -1;
+    }
+    header .menu li{
+        display: block;
+        flex: 0 0 100%;
+        margin: 0;
+        margin-bottom: 2em;
+    }
+    header .menu li a{
+        font-size: 2.0625em;
+        color: #000;
+    }
+    header .menu li a:after{
+        content: none;
+    }
+    header .menu li a.active, header .menu li a:hover{
+        color: #7ed321;
+    }
+    .menu_state_open .menu_icon span{
+        background: #b0abab;
+    }
+    .menu_state_open .menu_icon span:nth-child(1), .menu_state_open .menu_icon span:nth-child(4) {
+        top: calc(50% - 0.2em);
+        width: 0%;
+        left: calc(50% - 0.2em);
+    }
+    .menu_state_open .menu_icon span:nth-child(2) {
+        transform: rotate(45deg);
+    }
+    .menu_state_open .menu_icon span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+    header .menu_state_open .menu{
+        height: 100vh;
+    }
+    header .header-wrapper .header.menu_state_open{
+        background: #fff;
+    }
+    header .filtration-button{
+        margin-left: auto;
+        margin-right: 3.75em;
+    }
+}

@@ -13,11 +13,18 @@ header .header-wrapper .header{
     align-items: center;
     transition: .4s;
 }
+header .logo-wrapper{
+    flex: 0 0 9.1385em;
+    display: block;
+}
 @media (max-width: 768px){
     body{
         font-size: 3.21vw;
     }
     header .header-wrapper .header{
         padding: 1.625em 2.0625em;
+    }
+    header .logo-wrapper{
+        flex: 0 0 8.1385em;
     }
 }

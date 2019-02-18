@@ -3,6 +3,7 @@ import './header.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Logo from './Logo';
+import Menu from './Menu';
 
 class Header extends Component{
     render () {
@@ -11,8 +12,9 @@ class Header extends Component{
                 <div className="col-12 header-wrapper">
                     <div className="row header">
                         <Logo image={this.props.imageLogo} />
-                    </div>
-                </div>    
+                        <Menu />
+                    </div> 
+                </div>  
             </header>
         );
     }

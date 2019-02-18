@@ -16,13 +16,25 @@ class Home extends Component{
         this.props.checkWindowWidth(window.innerWidth);
     }
 
+    getUser = async (e) => {
+        e.preventDefault();
+        let response = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/user", {
+                headers: {
+                    Accept: "application/json",
+                    Authorization: "Bearer eb8cdf9e61521369da24ab55f0095f5da870881990d9b75daefef50333178daf"
+                }
+        }).then((response) => {
+            return response.json();
+        });
+    }
+
     render () {
         return (
             <div className="panel-let-in">
                 <div className="image-wrapper">
                     <img src={this.props.imageBear} />
                 </div>
-                <Link to="/jogs" >Let me in</Link>
+                <Link to="/jogs" onClick={this.getUser}>Let me in</Link>
             </div>
         );
     }
