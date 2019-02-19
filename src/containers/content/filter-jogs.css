@@ -1,0 +1,26 @@
+.filtration-form-wrapper{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: .4s;
+}
+.filtration-form-wrapper form{
+    padding: 1em 0;
+    background: #eaeaea;
+}
+.filtration-form-wrapper form label{
+    flex: 0 0 13%;
+    max-width: 13%;
+    margin: 0;
+    color: #6f6f6f;
+}
+.filtration-form-wrapper form label input{
+    width: 48%;
+    margin-left: 1em;
+}
+@media(max-width: 768px){
+    .filtration-form-wrapper form label{
+        flex: 0 0 47%;
+        max-width: 47%;
+    }
+}

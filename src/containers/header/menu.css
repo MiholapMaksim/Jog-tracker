@@ -33,6 +33,9 @@ header .menu li a.active:after, header .menu li a:hover:after{
 header .filtration-button{
     margin-left: 1.4375em;
 }
+header .filtration-button:hover{
+    cursor: pointer;
+}
 header .filtration-button img{
     width: 2.25em;
 }

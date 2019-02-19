@@ -32,3 +32,13 @@ export const setJogs = (array) =>({
     type: "SET_JOGS",
     payload: array
 });
+
+export const checkStateFilter = (check) =>({
+    type: "CHANGE_IMAGE_FILTER",
+    payload: check
+});
+
+export const changeStateFilter = (value) =>({
+    type: "CHANGE_STATE_FILTER",
+    payload: value
+});

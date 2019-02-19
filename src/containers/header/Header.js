@@ -4,8 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Logo from './Logo';
 import Menu from './Menu';
-import {Route} from "react-router-dom";
-import Jogs from "../content/Jogs";
+import FilterJogs from "../content/FilterJogs";
+
 
 class Header extends Component{
     render () {
@@ -15,9 +15,9 @@ class Header extends Component{
                     <div className="row header">
                         <Logo image={this.props.imageLogo} />
                         {this.props.status ? <Menu /> : ""}
-
                     </div> 
-                </div>  
+                </div>
+                <FilterJogs />
             </header>
         );
     }
@@ -29,6 +29,5 @@ function mapStateToProps(state) {
         status: state.page.statusAuthenticate
     };
 }
-
 
 export default connect(mapStateToProps)(Header);

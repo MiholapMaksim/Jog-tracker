@@ -3,7 +3,7 @@ import './menu.css';
 import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {checkActivePage, checkStateMenu, changeStateMenu} from "../../actions";
+import {checkActivePage, checkStateMenu, changeStateMenu, changeStateFilter, checkStateFilter} from "../../actions";
 
 class Menu extends Component {
     
@@ -33,6 +33,10 @@ class Menu extends Component {
         }
     };
 
+    openFilterForm = () => {
+        this.props.changeStateFilter(this.props.currentStateFilter);
+        this.props.checkStateFilter(!this.props.currentStateFilter);
+    };
 
     render(){
         return(
@@ -42,7 +46,7 @@ class Menu extends Component {
                     <li><NavLink to="/info" activeClassName="active" onClick={this.handlerClickLink}>Info</NavLink></li>
                     <li><NavLink to="/contact" activeClassName="active" onClick={this.handlerClickLink}>Contact us</NavLink></li>
                 </ul>
-                <a href="#" className="filtration-button"><img src="../images/header/filter.svg" /></a>
+                <a className="filtration-button" onClick={this.openFilterForm}><img src={this.props.currentImageFilter} /></a>
                 <div className="menu_icon" onClick={this.handlerClickOpenMenu}>
                     <span></span>
                     <span></span>
@@ -58,7 +62,9 @@ function mapStateToProps(state) {
     return {
         currentPage: state.page.currentPage,
         currentLogo: state.images.currentLogo,
-        currentStateMenu: state.page.stateMenu
+        currentStateMenu: state.page.stateMenu,
+        currentStateFilter: state.filter.stateFilter,
+        currentImageFilter: state.images.currentFilter
     };
 }
 
@@ -66,7 +72,9 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         checkActivePage: checkActivePage,
         checkStateMenu: checkStateMenu,
-        changeStateMenu: changeStateMenu
+        changeStateMenu: changeStateMenu,
+        changeStateFilter: changeStateFilter,
+        checkStateFilter: checkStateFilter
     }, dispatch)
 }
 
