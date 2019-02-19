@@ -10,13 +10,6 @@ import {checkActivePage} from "./actions";
 
 class App extends Component{
 
-    componentDidMount(){
-        window.onbeforeunload = function() {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('token_type');
-        };
-    }
-
     render () {
         return (
             <>

@@ -35,10 +35,12 @@ class Jogs extends Component {
             return (
                 <div className="col-md-2 list-jogs-wrapper">
                     <div className="row">
+
                         {this.props.jogs.map((jog) =>{
-                            return(
-                                <JogItem key={jog.id} jog={jog} getCorrectDate={this.getCorrectDate}/>
-                            )
+                            if ((this.props.dataFilter.dateFrom < jog.date && this.props.dataFilter.dateTo > jog.date) || (this.props.dataFilter.dateFrom === ""))
+                                return(
+                                    <JogItem key={jog.id} jog={jog} getCorrectDate={this.getCorrectDate}/>
+                                )
                         })}
                     </div>
                 </div>
@@ -62,7 +64,8 @@ class Jogs extends Component {
 function mapStateToProps(state) {
     return {
         status: state.jogs.statusResponse,
-        jogs: state.jogs.list_jogs
+        jogs: state.jogs.list_jogs,
+        dataFilter: state.filter.dataForm
     };
 }
 

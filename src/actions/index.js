@@ -42,3 +42,8 @@ export const changeStateFilter = (value) =>({
     type: "CHANGE_STATE_FILTER",
     payload: value
 });
+
+export const getDataFormFilter = (data) =>({
+    type: "GET_DATA_FORM_FILTER",
+    payload: data
+});

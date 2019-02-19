@@ -46,7 +46,10 @@ class Menu extends Component {
                     <li><NavLink to="/info" activeClassName="active" onClick={this.handlerClickLink}>Info</NavLink></li>
                     <li><NavLink to="/contact" activeClassName="active" onClick={this.handlerClickLink}>Contact us</NavLink></li>
                 </ul>
-                <a className="filtration-button" onClick={this.openFilterForm}><img src={this.props.currentImageFilter} /></a>
+                {
+                    this.props.currentPage === "/jogs" &&
+                    <a className="filtration-button" onClick={this.openFilterForm}><img src={this.props.currentImageFilter} /></a>
+                }
                 <div className="menu_icon" onClick={this.handlerClickOpenMenu}>
                     <span></span>
                     <span></span>

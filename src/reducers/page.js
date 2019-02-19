@@ -1,7 +1,7 @@
 const inititialState = {
-    currentPage: "/",
+    currentPage: window.location.pathname,
     stateMenu: false,
-    statusAuthenticate: false
+    statusAuthenticate: localStorage.getItem("access_token")
 };
 
 export default function(state = inititialState, action){
