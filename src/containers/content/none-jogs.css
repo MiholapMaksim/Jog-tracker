@@ -1,0 +1,39 @@
+.content-wrapper .panel-not-found .image-wrapper{
+    width: 10em;
+    margin: 0 auto;
+}
+.content-wrapper .panel-not-found a{
+    font-family: SFUIText-Bold;
+    line-height: 1;
+    color: #fff;
+    border-style: none;
+    background: transparent;
+    border-radius: 2em;
+    border: 0.16em solid #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+.content-wrapper .panel-not-found{
+    text-align: center
+}
+.content-wrapper .panel-not-found p{
+    font-family: SFUIText-Regular;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    margin-top: 1.95em;
+    margin-bottom: 5.875em;
+}
+.content-wrapper .panel-not-found a{
+    font-size: 1.125em;
+    border-color: #e990f9;
+    color: #e990f9;
+    padding: 1.11em 1.88em;
+}
+@media(max-width: 768px){
+    .content-wrapper .panel-not-found a{
+        font-size: 1.5em;
+    }
+    .content-wrapper .panel-not-found p{
+        font-size: 1.9375em;
+    }
+}

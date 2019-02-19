@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {setJogs, changeStatusResponseGetJogs} from "../../actions";
 import JogItem from "../../components/content/JogItem";
+import NoneJogs from "./NoneJogs";
 
 class Jogs extends Component {
 
@@ -31,11 +32,10 @@ class Jogs extends Component {
     };
 
     showJogs = () => {
-        if (this.props.jogs.length > 0){
+        if (/*this.props.jogs.length*/ 0 > 0){
             return (
                 <div className="col-md-2 list-jogs-wrapper">
                     <div className="row">
-
                         {this.props.jogs.map((jog) =>{
                             if ((this.props.dataFilter.dateFrom < jog.date && this.props.dataFilter.dateTo > jog.date) || (this.props.dataFilter.dateFrom === ""))
                                 return(
@@ -44,6 +44,11 @@ class Jogs extends Component {
                         })}
                     </div>
                 </div>
+            )
+        }
+        else{
+            return (
+                <NoneJogs />
             )
         }
     };
