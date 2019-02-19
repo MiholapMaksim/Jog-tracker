@@ -18,8 +18,8 @@ export const changeStateMenu = (value) =>({
     payload: value
 });
 
-export const changeStatusResponseAuthenticate = (status) =>({
-    type: "STATUS_RESPONSE_AUTHENTICATE",
+export const changeStatusAuthenticate = (status) =>({
+    type: "STATUS_AUTHENTICATE",
     payload: status
 });
 

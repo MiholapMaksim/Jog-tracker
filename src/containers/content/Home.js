@@ -3,7 +3,7 @@ import './home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {checkWindowWidth, changeStatusResponseAuthenticate} from "../../actions";
+import {checkWindowWidth, changeStatusAuthenticate} from "../../actions";
 
 class Home extends Component{
 
@@ -25,10 +25,11 @@ class Home extends Component{
             },
             method: "POST"
         });
-        this.props.changeStatusResponseAuthenticate(response.ok);
+
         let responseToken = await response.json();
         localStorage.setItem('access_token', responseToken.response.access_token);
         localStorage.setItem('token_type', responseToken.response.token_type);
+        this.props.changeStatusAuthenticate(!!localStorage.getItem("access_token") );
     };
 
     render () {
@@ -52,7 +53,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         checkWindowWidth: checkWindowWidth,
-        changeStatusResponseAuthenticate: changeStatusResponseAuthenticate
+        changeStatusAuthenticate: changeStatusAuthenticate
     }, dispatch)
 }
 

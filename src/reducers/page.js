@@ -1,7 +1,7 @@
 const inititialState = {
     currentPage: "/",
     stateMenu: false,
-    statusResponse: false
+    statusAuthenticate: false
 };
 
 export default function(state = inititialState, action){
@@ -14,9 +14,9 @@ export default function(state = inititialState, action){
             return Object.assign({}, state, {
                 stateMenu: !action.payload
             });
-        case "STATUS_RESPONSE_AUTHENTICATE":
+        case "STATUS_AUTHENTICATE":
             return Object.assign({}, state, {
-                statusResponse: action.payload
+                statusAuthenticate: action.payload
             });
         default:
             return state;

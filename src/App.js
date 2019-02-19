@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route} from "react-router-dom";
 import Header from './containers/header/Header';
 import Home from './containers/content/Home';
 import Info from './components/content/Info';
 import Jogs from './containers/content/Jogs';
+import {checkActivePage} from "./actions";
 
 class App extends Component{
+
+    componentDidMount(){
+        window.onbeforeunload = function() {
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('token_type');
+        };
+    }
 
     render () {
         return (
@@ -16,7 +24,14 @@ class App extends Component{
                 <div className="col-12 content-wrapper">
                     <div className="row align-items-center justify-content-center h-100">
                         <Route exact path="/" component={Home} />
-                        {this.props.status ? <Route path="/jogs" component={Jogs} /> : ""}
+                         <Route path="/jogs" render={() => {
+                            if (this.props.status)
+                                return <Jogs />;
+                            else{
+                                this.props.checkActivePage("/");
+                                return <Redirect to="/" />;
+                            }
+                        }} />
                         <Route path="/info" component={Info} />
                     </div>
                 </div>
@@ -27,8 +42,15 @@ class App extends Component{
 
 function mapStateToProps(state) {
     return {
-        status: state.page.statusResponse
+        status: state.page.statusAuthenticate,
+        currentPage: state.page.currentPage,
     };
 }
 
-export default connect(mapStateToProps)(App);
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        checkActivePage: checkActivePage
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(App);
