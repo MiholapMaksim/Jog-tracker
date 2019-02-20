@@ -2,7 +2,7 @@ const inititialState = {
     currentLogo: "images/header/logo.svg",
     currentBear: "images/panel/bear-face.svg",
     currentFilter: "images/header/filter.svg"
-}
+};
 
 export default function(state = inititialState, action){
     switch (action.type){

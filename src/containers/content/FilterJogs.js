@@ -40,8 +40,8 @@ class FilterJogs extends Component{
             };
             if (dateFrom !== "") {
                 dateForm = {
-                    dateFrom: this.getCorrectDate(regexp, dateFrom),
-                    dateTo: this.getCorrectDate(regexp, dateTo)
+                    dateFrom:  dateFrom,
+                    dateTo:  dateTo
                 };
             }
             this.props.getDataFormFilter(dateForm);
@@ -58,11 +58,11 @@ class FilterJogs extends Component{
                 <form id="filtration" className="row justify-content-center" method="post" onSubmit={this.getFormData}>
                     <label className="col-md-2">
                         Date from
-                        <input type="text" name="date_from" id="date_from"/>
+                        <input type="text" name="date_from" id="date_from" defaultValue={this.props.dataForm.dateFrom}/>
                     </label>
                     <label className="col-md-2">
                         Date to
-                        <input type="text" name="date_to" id="date_to"/>
+                        <input type="text" name="date_to" id="date_to" defaultValue={this.props.dataForm.dateTo}/>
                     </label>
                     <input type="submit" style={{"display":"none"}} />
                 </form>
@@ -73,7 +73,8 @@ class FilterJogs extends Component{
 
 function mapStateToProps(state) {
     return {
-        currentStateFilter: state.filter.stateFilter
+        currentStateFilter: state.filter.stateFilter,
+        dataForm: state.filter.dataForm
     };
 }
 

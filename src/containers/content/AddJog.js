@@ -8,7 +8,7 @@ import {checkActivePage} from "../../actions";
 class AddJog extends Component {
 
     elementSubmit = {};
-    statusAdd = false;
+    statusRequest = false;
 
     getElementSubmit = (node) => {
         this.elementSubmit = node;
@@ -20,10 +20,36 @@ class AddJog extends Component {
 
     handlerClickSave = (e) => {
         this.elementSubmit.click();
-        !this.statusAdd ? e.preventDefault() : this.props.checkActivePage(e.currentTarget.attributes.href.nodeValue);
+        !this.statusRequest ? e.preventDefault() : this.props.checkActivePage(e.currentTarget.attributes.href.nodeValue);
     };
 
-    addJog = async (e) => {
+    editJog = async (dataForm) => {
+        let response = await fetch("https://jogtracker.herokuapp.com/api/v1/data/jog", {
+            body: "date=" + dataForm.date + "&time=" + dataForm.time + "&distance=" + dataForm.distance + "&jog_id=" + this.props.dataJog.id + "&user_id=" + this.props.dataJog.user_id,
+            headers: {
+                Accept: "application/json",
+                Authorization: localStorage.getItem("token_type") + " " + localStorage.getItem("access_token"),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "PUT"
+        });
+        await response.ok ? alert("Save") : alert("Not save");
+    };
+
+    addJog = async (dataForm) => {
+        let response = await fetch("https://jogtracker.herokuapp.com/api/v1/data/jog", {
+            body: "date=" + dataForm.date + "&time=" + dataForm.time + "&distance=" + dataForm.distance,
+            headers: {
+                Accept: "application/json",
+                Authorization: localStorage.getItem("token_type") + " " + localStorage.getItem("access_token"),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "POST"
+        });
+        await response.ok ? alert("Save") : alert("Not save");
+    };
+
+    submitForm = async (e) => {
         e.preventDefault();
         let dataForm = {
             distance: e.target.elements.distance.value,
@@ -32,40 +58,30 @@ class AddJog extends Component {
         };
         let regexp = new RegExp('(\\d{2})[.](\\d{2})[.](\\d{4})');
         if (dataForm.distance !== "" && dataForm.time !== "" && dataForm.date !== "" && regexp.test(dataForm.date)){
-            this.statusAdd = true;
-            let response = await fetch("https://jogtracker.herokuapp.com/api/v1/data/jog", {
-                body: "date=" + dataForm.date + "&time=" + dataForm.time + "&distance=" + dataForm.distance,
-                headers: {
-                    Accept: "application/json",
-                    Authorization: localStorage.getItem("token_type") + " " + localStorage.getItem("access_token"),
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                method: "POST"
-            });
-            await response.json().ok ? alert("Save") : alert("Not save");
+            this.statusRequest = true;
+            this.props.dataJog ? await this.editJog(dataForm) : await this.addJog(dataForm);
 
         }else{
-            this.statusAdd = false;
+            this.statusRequest = false;
             alert("Incorrect Data");
         }
-
     };
 
     render(){
         return(
             <div className="panel-add-run">
-                <form id="add-run" method="post" onSubmit={this.addJog}>
+                <form id="add-run" method="post" onSubmit={this.submitForm}>
                     <label>
                         Distance
-                        <input type="number" name="distance" id="distance"/>
+                        <input type="number" name="distance" id="distance" defaultValue={this.props.dataJog.distance}/>
                     </label>
                     <label>
                         Time
-                        <input type="number" name="time" id="time"/>
+                        <input type="number" name="time" id="time" defaultValue={this.props.dataJog.time}/>
                     </label>
                     <label>
                         Date
-                        <input type="text" name="date" id="date"/>
+                        <input type="text" name="date" id="date" defaultValue={this.props.dataJog.date}/>
                     </label>
                     <Link to="/jogs" onClick={this.handlerClickSave}>Save</Link>
                     <input type="submit" style={{"display":"none"}} ref={this.getElementSubmit}/>

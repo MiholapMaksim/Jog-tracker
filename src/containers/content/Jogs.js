@@ -3,8 +3,8 @@ import './jogs.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {setJogs, changeStatusResponseGetJogs, checkActivePage} from "../../actions";
-import JogItem from "../../components/content/JogItem";
+import {setJogs, changeStatusResponseGetJogs, checkActivePage, getActiveJog} from "../../actions";
+import JogItem from "./JogItem";
 import NoneJogs from "./NoneJogs";
 
 class Jogs extends Component {
@@ -23,6 +23,16 @@ class Jogs extends Component {
 
     handlerClickLink = (e) => {
         this.props.checkActivePage(e.currentTarget.attributes.href.nodeValue);
+        this.props.getActiveJog({});
+    };
+
+    dateConvertToSeconds = (value) => {
+        if (value !== "") {
+            let regexp = new RegExp('(\\d{2})[.](\\d{2})[.](\\d{4})$');
+            let arrayDate = regexp.exec(value);
+            let date = new Date(arrayDate[3], arrayDate[2] - 1, arrayDate[1]);
+            return date.getTime() / 1000;
+        }
     };
 
     getCorrectDate = (date) => {
@@ -43,7 +53,7 @@ class Jogs extends Component {
                     <div className="col-md-2 list-jogs-wrapper">
                         <div className="row">
                             {this.props.jogs.map((jog) =>{
-                                if ((this.props.dataFilter.dateFrom < jog.date && this.props.dataFilter.dateTo > jog.date) || (this.props.dataFilter.dateFrom === ""))
+                                if ((this.dateConvertToSeconds(this.props.dataFilter.dateFrom) < jog.date && this.dateConvertToSeconds(this.props.dataFilter.dateTo) > jog.date) || (this.props.dataFilter.dateFrom === ""))
                                     return(
                                         <JogItem key={jog.id} jog={jog} getCorrectDate={this.getCorrectDate}/>
                                     )
@@ -86,7 +96,8 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({
         changeStatusResponseGetJogs: changeStatusResponseGetJogs,
         setJogs: setJogs,
-        checkActivePage: checkActivePage
+        checkActivePage: checkActivePage,
+        getActiveJog: getActiveJog
     }, dispatch)
 }
 

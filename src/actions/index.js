@@ -47,3 +47,8 @@ export const getDataFormFilter = (data) =>({
     type: "GET_DATA_FORM_FILTER",
     payload: data
 });
+
+export const getActiveJog = (data) =>({
+    type: "GET_ACTIVE_JOG",
+    payload: data
+});

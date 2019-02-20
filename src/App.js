@@ -26,8 +26,22 @@ class App extends Component{
                                 return <Redirect to="/" />;
                             }
                         }} />
-                        <Route path="/info" component={Info} />
-                        <Route path="/add-jog" component={AddJog} />
+                        <Route path="/info" render={() => {
+                            if (this.props.status)
+                                return <Info />;
+                            else{
+                                this.props.checkActivePage("/");
+                                return <Redirect to="/" />;
+                            }
+                        }} />
+                        <Route path="/add-jog" render={() => {
+                            if (this.props.status)
+                                return <AddJog dataJog={this.props.activeJog}/>;
+                            else{
+                                this.props.checkActivePage("/");
+                                return <Redirect to="/" />;
+                            }
+                        }} />
                     </div>
                 </div>
             </>
@@ -39,6 +53,7 @@ function mapStateToProps(state) {
     return {
         status: state.page.statusAuthenticate,
         currentPage: state.page.currentPage,
+        activeJog: state.jogs.activeJog
     };
 }
 

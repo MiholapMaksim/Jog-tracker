@@ -1,6 +1,7 @@
 const inititialState = {
     list_jogs: [],
-    statusResponse: false
+    statusResponse: false,
+    activeJog: {}
 };
 
 export default function(state = inititialState, action){
@@ -12,6 +13,10 @@ export default function(state = inititialState, action){
         case "STATUS_RESPONSE_GET_JOGS":
             return Object.assign({}, state, {
                 statusResponse: action.payload
+            });
+        case "GET_ACTIVE_JOG":
+            return Object.assign({}, state, {
+                activeJog: action.payload
             });
         default:
             return state;
