@@ -12,6 +12,12 @@
 .content-wrapper .list-jogs-wrapper .item p span{
     color: #000;
 }
+.content-wrapper .add-jog{
+    position: fixed;
+    width: 3.75em;
+    bottom: 2.5em;
+    right: 2.5em;
+}
 @media(max-width: 768px){
     .content-wrapper .list-jogs-wrapper .item{
         padding: 3.75em 15px;

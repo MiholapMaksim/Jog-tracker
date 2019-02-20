@@ -1,0 +1,75 @@
+.content-wrapper .panel-add-run form a{
+    font-family: SFUIText-Bold;
+    line-height: 1;
+    color: #fff;
+    border-style: none;
+    background: transparent;
+    border-radius: 2em;
+    border: 0.16em solid #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+.content-wrapper .panel-add-run{
+    position: relative;
+    width: 31.4375em;
+    border-radius: 2.75em;
+    background-color: #7ed321;
+    text-align: center;
+    padding-top: 4.8125em;
+    padding-bottom: 2.25em;
+}
+.content-wrapper .panel-add-run .cancel{
+    position: absolute;
+    font-size: 1em;
+    width: 1.6875em;
+    right: 1.6875em;
+    top: 1.6875em;
+
+}
+.content-wrapper .panel-add-run form{
+    margin: 0 5.71em;
+}
+.content-wrapper .panel-add-run form label{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    font-family: SFUIText-Regular;
+    font-size: 1em;
+    margin-bottom: 1.5625em;
+}
+.content-wrapper .panel-add-run form label input{
+    display: block;
+    margin-left: auto;
+    border-radius: 0.4375em;
+    border-style: none;
+    padding: 0.3em 0.5em;
+    border: 0.0625em solid #979797;
+}
+.content-wrapper .panel-add-run form a{
+    font-size: 0.8em;
+    display: block;
+    width: 100%;
+    padding: 1.16em 0;
+    margin-top: 3.83em;
+}
+@media(max-width: 768px){
+    .content-wrapper .panel-add-run{
+        width: 82%;
+    }
+    .content-wrapper .panel-add-run form{
+        margin: 0 2.875em;
+    }
+    .content-wrapper .panel-add-run form label{
+        display: block;
+    }
+    .content-wrapper .panel-add-run form label input{
+        width: 100%;
+        margin-top: 0.5em;
+    }
+    .content-wrapper .panel-add-run form a{
+        margin-top: 3.375em;
+    }
+    .content-wrapper .panel-add-run form a{
+        font-size: 1em;
+    }
+}

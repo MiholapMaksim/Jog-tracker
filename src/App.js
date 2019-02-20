@@ -6,6 +6,7 @@ import Header from './containers/header/Header';
 import Home from './containers/content/Home';
 import Info from './components/content/Info';
 import Jogs from './containers/content/Jogs';
+import AddJog from './containers/content/AddJog';
 import {checkActivePage} from "./actions";
 
 class App extends Component{
@@ -26,6 +27,7 @@ class App extends Component{
                             }
                         }} />
                         <Route path="/info" component={Info} />
+                        <Route path="/add-jog" component={AddJog} />
                     </div>
                 </div>
             </>

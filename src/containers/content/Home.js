@@ -16,7 +16,7 @@ class Home extends Component{
         this.props.checkWindowWidth(window.innerWidth);
     };
 
-    getToken = async (e) => {
+    getToken = async () => {
         let response = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/uuidLogin", {
             body: "uuid=hello",
             headers: {
@@ -29,7 +29,7 @@ class Home extends Component{
         let responseToken = await response.json();
         localStorage.setItem('access_token', responseToken.response.access_token);
         localStorage.setItem('token_type', responseToken.response.token_type);
-        this.props.changeStatusAuthenticate(!!localStorage.getItem("access_token") );
+        this.props.changeStatusAuthenticate(!!localStorage.getItem("access_token"));
     };
 
     render () {
