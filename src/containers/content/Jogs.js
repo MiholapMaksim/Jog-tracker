@@ -17,7 +17,9 @@ class Jogs extends Component {
             }
         });
         let responseJogs = await response.json();
-        this.props.setJogs(responseJogs.response.jogs);
+        if (response.ok){
+            this.props.setJogs(responseJogs.response.jogs) ;
+        }
         this.props.changeStatusResponseGetJogs(response.ok);
     }
 
@@ -76,9 +78,11 @@ class Jogs extends Component {
             <>
                 {this.props.status  ?
                     this.showJogs()
-                 : ""
+                 : <div className="error-request">
+                        <h1>The request failed</h1>
+                        <Link to="/" onClick={this.handlerClickLink}>Home</Link>
+                    </div>
                 }
-
             </>
         );
     }

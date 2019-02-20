@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import './none-jogs.css';
-import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {checkActivePage} from "../../actions";
@@ -18,7 +18,7 @@ class NoneJogs extends Component {
                     <img src="../images/panel/sad-rounded-square-emoticon.svg"/>
                 </div>
                 <p>Nothing is there</p>
-                <NavLink to="/add-jog" activeClassName="active" onClick={this.handlerClickLink}>Create your jog first</NavLink>
+                <Link to="/add-jog" activeClassName="active" onClick={this.handlerClickLink}>Create your jog first</Link>
             </div>
         );
     }

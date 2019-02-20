@@ -3,7 +3,7 @@ import './home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {checkWindowWidth, changeStatusAuthenticate} from "../../actions";
+import {checkWindowWidth, changeStatusAuthenticate, checkActivePage} from "../../actions";
 
 class Home extends Component{
 
@@ -16,7 +16,8 @@ class Home extends Component{
         this.props.checkWindowWidth(window.innerWidth);
     };
 
-    getToken = async () => {
+    getToken = async (e) => {
+        this.props.checkActivePage(e.currentTarget.attributes.href.nodeValue);
         let response = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/uuidLogin", {
             body: "uuid=hello",
             headers: {
@@ -53,7 +54,8 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         checkWindowWidth: checkWindowWidth,
-        changeStatusAuthenticate: changeStatusAuthenticate
+        changeStatusAuthenticate: changeStatusAuthenticate,
+        checkActivePage: checkActivePage
     }, dispatch)
 }
 

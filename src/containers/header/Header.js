@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './header.css';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import Logo from './Logo';
+import Logo from '../../components/header/Logo';
 import Menu from './Menu';
 import FilterJogs from "../content/FilterJogs";
 

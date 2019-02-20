@@ -50,7 +50,7 @@ class Menu extends Component {
                     this.props.currentPage === "/jogs" &&
                     <a className="filtration-button" onClick={this.openFilterForm}><img src={this.props.currentImageFilter} /></a>
                 }
-                <div className="menu_icon" onClick={this.handlerClickOpenMenu}>
+                <div className="menu_icon" style={this.props.currentPage !== "/jogs" ? {"marginLeft": "auto"} : {}} onClick={this.handlerClickOpenMenu}>
                     <span></span>
                     <span></span>
                     <span></span>

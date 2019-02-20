@@ -33,11 +33,69 @@ img{
   top: 0;
   padding-top: 12em;
 }
+.error-request{
+    width: 55em;
+    border-radius: 2.75em;
+    background-color: #e88080;
+    text-align: center;
+    padding-top: 4.8125em;
+    padding-bottom: 2.25em;
+}
+.error-request h1{
+    text-transform: uppercase;
+    font-family: SFUIText-Bold;
+    font-size: 6em;
+    text-shadow: 0.1em 0.1em 0.3em #212529;
+    color: #fff;
+}
+.error-request a{
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    font-size: 2em;
+    font-family: SFUIText-Bold;
+    text-transform: uppercase;
+    border: 0.16em solid #fff;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    color: #fff;
+    margin-top: 1em;
+    text-decoration:  none;
+    transition: .2s;
+}
+.error-request a:hover{
+    box-shadow: 0 0 1em 0 #212529;
+}
 @media (max-width: 768px){
-  body{
-      font-size: 3.21vw;
-  }
-  .content-wrapper{
-    padding-top: 8em;
-  }
+    body{
+        font-size: 3.21vw;
+    }
+    .content-wrapper{
+      padding-top: 8em;
+    }
+    .error-request{
+        width: 85%;
+    }
+    .error-request h1{
+        text-transform: uppercase;
+        font-family: SFUIText-Bold;
+        font-size: 3em;
+        text-shadow: 0.1em 0.1em 0.3em #212529;
+        color: #fff;
+    }
+    .error-request a{
+        display: block;
+        margin: 0 auto;
+        width: max-content;
+        font-size: 2em;
+        font-family: SFUIText-Bold;
+        text-transform: uppercase;
+        border: 0.16em solid #fff;
+        border-radius: 2em;
+        padding: 0.5em 1em;
+        color: #fff;
+        margin-top: 2em;
+        text-decoration:  none;
+        transition: .2s;
+    }
 }

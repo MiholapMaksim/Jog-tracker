@@ -33,7 +33,7 @@ class AddJog extends Component {
             },
             method: "PUT"
         });
-        await response.ok ? alert("Save") : alert("Not save");
+        await response.ok ? alert("Saved successful") : alert("The request failed");
     };
 
     addJog = async (dataForm) => {
@@ -46,7 +46,7 @@ class AddJog extends Component {
             },
             method: "POST"
         });
-        await response.ok ? alert("Save") : alert("Not save");
+        await response.ok ? alert("Saved successful") : alert("The request failed");
     };
 
     submitForm = async (e) => {
