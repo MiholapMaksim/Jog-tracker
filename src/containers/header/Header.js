@@ -17,7 +17,7 @@ class Header extends Component{
                         {this.props.status ? <Menu /> : ""}
                     </div> 
                 </div>
-                <FilterJogs />
+                {this.props.currentPage === "/jogs" && <FilterJogs />}
             </header>
         );
     }
@@ -26,7 +26,8 @@ class Header extends Component{
 function mapStateToProps(state) {
     return {
         imageLogo: state.images.currentLogo,
-        status: state.page.statusAuthenticate
+        status: state.page.statusAuthenticate,
+        currentPage: state.page.currentPage
     };
 }
 

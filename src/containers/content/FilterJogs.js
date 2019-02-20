@@ -3,11 +3,16 @@ import './filter-jogs.css';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Redirect, Route} from "react-router-dom";
-import {getDataFormFilter} from "../../actions";
+import {getDataFormFilter, changeStateFilter, checkStateFilter} from "../../actions";
 
 class FilterJogs extends Component{
 
     elementFilterWrapper = {};
+
+    componentWillUnmount(){
+        this.props.changeStateFilter(true);
+        this.props.checkStateFilter(false);
+    }
 
     showFilterForm = () =>{
         return  this.props.currentStateFilter ? {bottom: -this.elementFilterWrapper.offsetHeight} : {bottom: "0"};
@@ -25,7 +30,7 @@ class FilterJogs extends Component{
 
     getFormData = (e) => {
         e.preventDefault();
-        let regexp = new RegExp('(\\d{2})[.](\\d{2})[.](\\d{4})');
+        let regexp = new RegExp('(\\d{2})[.](\\d{2})[.](\\d{4})$');
         let dateFrom = e.target.elements.date_from.value;
         let dateTo = e.target.elements.date_to.value;
         if ((regexp.test(dateFrom) && regexp.test(dateTo)) || (dateFrom === "" && dateTo === "")) {
@@ -74,7 +79,9 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
-        getDataFormFilter: getDataFormFilter
+        getDataFormFilter: getDataFormFilter,
+        checkStateFilter: checkStateFilter,
+        changeStateFilter: changeStateFilter
     }, dispatch)
 }
 
